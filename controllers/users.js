@@ -12,6 +12,9 @@ const getAll = async (req, res) => {
 };
 
 const getSingle = async (req, res) => {
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must use a valid contact id to find a contact.');
+      }
     //swagger.tags=['Users']
     const userId= new ObjectId(req.params.id);
     const result =await mongodb.getDatabase().db().collection('users').find({_id: userId});
@@ -43,6 +46,9 @@ const createUser = async (req,res) => {
 };
 
 const updateUser = async (req,res) => {
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must use a valid contact id to update a contact.');
+      }
     //swagger.tags=['Users']
     const userId= new ObjectId(req.params.id);
     const user = {
@@ -63,6 +69,9 @@ const updateUser = async (req,res) => {
 };
 
 const deleteUser = async (req, res) => {
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must use a valid contact id to delete a contact.');
+      }
     //swagger.tags=['Users']
     const userId= new ObjectId(req.params.id);
     const response =await mongodb.getDatabase().db().collection('users').deleteOne({_id: userId});

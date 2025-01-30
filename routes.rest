@@ -1,0 +1,37 @@
+//LOCALHOST ### Get all users 
+GET http://localhost:3000/contacts
+
+### Get users by ID 
+GET http://localhost:3000/users/679939f8e02110bfb4a23e63
+
+### Create contact 
+POST http://localhost:3000/users HTTP/1.1 content-type: application/json
+
+{
+    "make": "Kia",
+    "model": "Picanto",
+    "mileage": "17000 km",
+    "colour": "Black",
+    "transmission": "Manual",
+    "registrationYear": "2021",
+    "bodyType": "Hatchback"
+
+}
+
+### Update contact 
+PUT http://localhost:3000/users/679939f8e02110bfb4a23e63 HTTP/1.1 content-type: application/json
+
+{
+    "make": "Kia",
+    "model": "Picanto",
+    "mileage": "17000 km",
+    "colour": "Black",
+    "transmission": "Manual",
+    "registrationYear": "2021",
+    "bodyType": "Hatchback"
+
+}
+
+### Delete user
+DELETE http://localhost:3000/users/679bd24f033409e4a40fb9e4 HTTP/1.1
+
